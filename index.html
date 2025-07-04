@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>フリースクール grow</title>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Yu Gothic", sans-serif;
+      margin: 0;
+      background-color: #fff;
+      color: #333;
+    }
+
+    /* スライドショー */
+    .slideshow {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+    }
+    .slideshow img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slideshow img.active {
+      opacity: 1;
+    }
+    .slideshow header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      color: white;
+      z-index: 10;
+      padding: 1.5rem;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    }
+    .slideshow header h1 {
+      font-size: 2.5rem;
+      color: #fff;
+    }
+    .slideshow header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background-color: #fafafa;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #388e3c;
+      font-weight: bold;
+    }
+    .logo-link {
+      margin-right: auto;
+    }
+    .logo-img {
+      height: 40px;
+      vertical-align: middle;
+    }
+
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      border-bottom: 1px solid #eee;
+    }
+    h2 {
+      border-left: 6px solid #d7a86e;
+      padding-left: 0.5rem;
+      color: #333;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+    a.pdf-link {
+      color: #d32f2f;
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slideshow">
+    <img src="IMG_2498_resized.jpg" class="active" />
+    <img src="IMG_2499_resized.jpg" />
+    <img src="IMG_2500_resized.jpg" />
+    <header>
+      <h1>フリースクール grow</h1>
+      <p>小さな芽が、大きく育つ場所</p>
+    </header>
+  </div>
+
+  <nav>
+    <a href="#top" class="logo-link">
+      <img src="growiogo.png" alt="growロゴ" class="logo-img">
+    </a>
+    <a href="#news">お知らせ</a>
+    <a href="#about">growについて</a>
+    <a href="#staff">講師紹介</a>
+    <a href="#access">アクセス</a>
+  </nav>
+
+  <section id="news">
+    <h2>お知らせ</h2>
+    <ul>
+      <li>2025年7月：<a href="pdfs/july-news.pdf" class="pdf-link" target="_blank">7月のお知らせ（PDF）</a></li>
+    </ul>
+  </section>
+
+  <section id="about">
+    <h2>フリースクール grow について</h2>
+    <h3>「学習の場」として、「コミュニティの場」として</h3>
+    <p>
+      中学生は多感な時期です。友人関係や部活動、そして勉強面などあらゆる理由で心も体も調子を崩してしまいます。お家で一人で勉強を続けるのは難しい。でも学校に行っていないのに塾には行けない。<br>
+      このような悩みをお持ちの中学生や保護者の方は少なくありません。<br>
+      そんな中学生のために学習塾のプロ講師がゆっくり丁寧に、その子に合わせた内容とペースで指導いたします。
+    </p>
+    <p>
+      フリースクールgrowは学校に通うことが難しいお子さんたちの一つのコミュニティの場になりたいと思っています。<br>
+      勉強やレクリエーションを通して「人とコミュニケーション」をとり、そしてそれが「楽しい」と思ってもらえる。そんな時間を提供できればと思います。
+    </p>
+    <p>
+      基本的には勉強を指導しますが私たちが何よりも大切にしていることはコミュニケーションです。
+    </p>
+  </section>
+
+  <section id="staff">
+    <h2>講師紹介</h2>
+    <p>
+     秋田県八峰町出身。 
+　　　宮城県仙台市で中学生向けの集団指導塾で理数科目の講師として４年勤務し、地元に帰省。
+　　　能代市で事務職に勤務していたが、地元の子供達の将来に関われる仕事がしたいと思い独立。
+　　　２０２０年「エース進学塾能代教室」開校。
+　　　２０２５年「フリースクールgrow」開校。
+　　　
+　　　趣味は音楽鑑賞・ボードゲーム・eスポーツ等。
+    </p>
+  </section>
+
+  <section id="access">
+    <h2>アクセス</h2>
+    <p>
+      〒016-0871 秋田県能代市字昇平岱２４−１８<br>
+      
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 フリースクール grow / お問い合わせ: info@example.com</p>
+  </footer>
+
+  <script>
+    const slides = document.querySelectorAll('.slideshow img');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+
+</body>
+</html>
