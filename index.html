@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>フリースクール grow</title>
   <style>
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: "Yu Gothic", sans-serif;
       margin: 0;
@@ -13,39 +15,47 @@
       color: #333;
     }
 
-    /* スライドショー */
-    .slideshow {
+    /* ヒーロースライドショー */
+    .hero-slider {
       position: relative;
-      height: 400px;
+      width: 100%;
+      height: 500px;
       overflow: hidden;
     }
-    .slideshow img {
-      width: 100%;
-      height: 400px;
-      object-fit: cover;
+    .hero-slide {
       position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-    .slideshow img.active {
+    .hero-slide.active {
       opacity: 1;
     }
-    .slideshow header {
+    .hero-text {
       position: absolute;
-      top: 0;
+      top: 50%;
       width: 100%;
       text-align: center;
       color: white;
-      z-index: 10;
-      padding: 1.5rem;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
+      transform: translateY(-50%);
+      padding: 0 1rem;
     }
-    .slideshow header h1 {
+
+    header {
+      background-color: #f5f5f5;
+      padding: 1.5rem 1rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid #e0e0e0;
+    }
+    header h1 {
+      margin: 0;
       font-size: 2.5rem;
-      color: #fff;
-    }
-    .slideshow header p {
-      font-size: 1.2rem;
+      color: #d32f2f;
     }
 
     nav {
@@ -107,16 +117,21 @@
 </head>
 <body>
 
-  <div class="slideshow">
-    <img src="IMG_2498_resized.jpg" class="active" />
-    <img src="IMG_2499_resized.jpg" />
-    <img src="IMG_2500_resized.jpg" />
-    <header>
-      <h1>フリースクール grow</h1>
-      <p>小さな芽が、大きく育つ場所</p>
-    </header>
+  <header id="top">
+    <h1>フリースクール grow</h1>
+  </header>
+
+  <!-- ヒーロースライドショー -->
+  <div class="hero-slider">
+    <img src="IMG_2498_resized.jpg" alt="スライド1" class="hero-slide active">
+    <img src="IMG_2499_resized.jpg" alt="スライド2" class="hero-slide">
+    <img src="IMG_2500_resized.jpg" alt="スライド3" class="hero-slide">
+    <div class="hero-text" id="hero-message">
+      学校でも塾でもない。ここは不登校の中学生のための学習室です。
+    </div>
   </div>
 
+  <!-- ナビゲーションバー -->
   <nav>
     <a href="#top" class="logo-link">
       <img src="growiogo.png" alt="growロゴ" class="logo-img">
@@ -127,6 +142,7 @@
     <a href="#access">アクセス</a>
   </nav>
 
+  <!-- お知らせ -->
   <section id="news">
     <h2>お知らせ</h2>
     <ul>
@@ -134,6 +150,7 @@
     </ul>
   </section>
 
+  <!-- growについて -->
   <section id="about">
     <h2>フリースクール grow について</h2>
     <h3>「学習の場」として、「コミュニティの場」として</h3>
@@ -151,39 +168,45 @@
     </p>
   </section>
 
+  <!-- 講師紹介 -->
   <section id="staff">
     <h2>講師紹介</h2>
     <p>
-     秋田県八峰町出身。 
-　　　宮城県仙台市で中学生向けの集団指導塾で理数科目の講師として４年勤務し、地元に帰省。
-　　　能代市で事務職に勤務していたが、地元の子供達の将来に関われる仕事がしたいと思い独立。
-　　　２０２０年「エース進学塾能代教室」開校。
-　　　２０２５年「フリースクールgrow」開校。
-　　　
-　　　趣味は音楽鑑賞・ボードゲーム・eスポーツ等。
+      経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。
     </p>
   </section>
 
+  <!-- アクセス -->
   <section id="access">
     <h2>アクセス</h2>
     <p>
-      〒016-0871 秋田県能代市字昇平岱２４−１８<br>
-      
+      〒000-0000 秋田県能代市〇〇町〇〇-〇〇<br>
+      JR能代駅から徒歩10分／駐車場あり
     </p>
   </section>
 
+  <!-- フッター -->
   <footer>
     <p>© 2025 フリースクール grow / お問い合わせ: info@example.com</p>
   </footer>
 
+  <!-- スライドショーJS -->
   <script>
-    const slides = document.querySelectorAll('.slideshow img');
+    const slides = document.querySelectorAll('.hero-slide');
+    const messages = [
+      "学校でも塾でもない。ここは不登校の中学生のための学習室です。",
+      "エース進学塾のプロ講師がその子に合わせた指導を行います。",
+      "高校は諦めたくない。そんな気持ちを応援したい。"
+    ];
+    const messageElement = document.getElementById('hero-message');
     let current = 0;
+
     setInterval(() => {
       slides[current].classList.remove('active');
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
-    }, 4000);
+      messageElement.textContent = messages[current];
+    }, 5000);
   </script>
 
 </body>
