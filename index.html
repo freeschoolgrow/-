@@ -1,63 +1,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>フリースクール grow</title>
   <style>
     html {
       scroll-behavior: smooth;
     }
     body {
-      font-family: "Yu Gothic", sans-serif;
       margin: 0;
+      font-family: "Yu Gothic", sans-serif;
       background-color: #fff;
       color: #333;
     }
-
+    /* ナビゲーションバー */
     nav {
-      background-color: rgba(255, 255, 255, 0.6); /* 半透明度さらに上げる */
-      padding: 0.5rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
       position: fixed;
       top: 0;
       width: 100%;
+      background-color: rgba(255, 255, 255, 0.6); /* 半透明 */
+      backdrop-filter: blur(5px); /* 背景ぼかし */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
       z-index: 1000;
-      backdrop-filter: blur(6px); /* 背景ぼかし */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    nav .logo-img {
+      height: 45px;
+    }
+    nav .nav-links {
+      display: flex;
+      gap: 1rem;
     }
     nav a {
-      margin: 0 1rem;
       text-decoration: none;
       color: #388e3c;
       font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #d32f2f;
-    }
-    .logo-link {
-      margin-right: auto;
-    }
-    .logo-img {
-      height: 50px;
-      vertical-align: middle;
+      font-size: 1rem;
     }
 
+    /* スライドショー */
+    .slideshow {
+      position: relative;
+      margin-top: 60px; /* ナビバー分の余白 */
+      height: 60vh;
+      overflow: hidden;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: cover;
+      background-position: center;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    .slide-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      background-color: rgba(0,0,0,0.5);
+      padding: 1rem 2rem;
+      border-radius: 5px;
+      font-size: 1.4rem;
+      text-align: center;
+    }
+
+    /* セクション */
     section {
-      padding: 4rem 1rem 3rem;
+      padding: 3rem 1rem;
       max-width: 900px;
       margin: auto;
       border-bottom: 1px solid #eee;
     }
-
     h2 {
       border-left: 6px solid #d7a86e;
       padding-left: 0.5rem;
       color: #333;
     }
+    h3 {
+      color: #388e3c;
+    }
+    a.pdf-link {
+      color: #d32f2f;
+      text-decoration: underline;
+    }
 
+    /* フッター */
     footer {
       background-color: #f5f5f5;
       text-align: center;
@@ -69,38 +106,104 @@
 </head>
 <body>
 
-  <!-- トップ -->
-  <div id="top"></div>
-
   <!-- ナビゲーションバー -->
   <nav>
-    <a href="#top" class="logo-link">
-      <img src="growlogo.png" alt="growロゴ" class="logo-img">
+    <a href="#top">
+      <img src="growlogo.png" alt="growロゴ" class="logo-img" />
     </a>
-    <a href="#news">お知らせ</a>
-    <a href="#about">growについて</a>
-    <a href="#join">入会案内</a>
-    <a href="#staff">講師</a>
-    <a href="#contact">お問い合わせ</a>
-    <a href="#access">アクセス</a>
+    <div class="nav-links">
+      <a href="#news">お知らせ</a>
+      <a href="#about">growについて</a>
+      <a href="#join">入会案内</a>
+      <a href="#staff">講師</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="#access">アクセス</a>
+    </div>
   </nav>
 
-  <!-- セクション例（aboutやnewsなどこの下に続きます） -->
+  <!-- スライドショー -->
+  <div class="slideshow" id="top">
+    <div class="slide active" style="background-image: url('IMG_2498.jpeg')">
+      <div class="slide-text">学校でも塾でもない。ここは不登校の中学生のための学習室です。</div>
+    </div>
+    <div class="slide" style="background-image: url('IMG_2499.jpeg')">
+      <div class="slide-text">エース進学塾のプロ講師がその子に合わせた指導を行います。</div>
+    </div>
+    <div class="slide" style="background-image: url('IMG_2500.jpeg')">
+      <div class="slide-text">高校は諦めたくない。そんな気持ちを応援したい。</div>
+    </div>
+  </div>
+
+  <!-- お知らせ -->
+  <section id="news">
+    <h2>お知らせ</h2>
+    <ul>
+      <li>2025年7月：<a href="pdfs/july-news.pdf" class="pdf-link" target="_blank">7月のお知らせ（PDF）</a></li>
+    </ul>
+  </section>
+
+  <!-- growについて -->
+  <section id="about">
+    <h2>フリースクール grow について</h2>
+    <h3>「学習の場」として、「コミュニティの場」として</h3>
+    <p>
+      中学生は多感な時期です。友人関係や部活動、そして勉強面などあらゆる理由で心も体も調子を崩してしまいます。お家で一人で勉強を続けるのは難しい。でも学校に行っていないのに塾には行けない。<br>
+      このような悩みをお持ちの中学生や保護者の方は少なくありません。<br>
+      そんな中学生のために学習塾のプロ講師がゆっくり丁寧に、その子に合わせた内容とペースで指導いたします。
+    </p>
+    <p>
+      フリースクールgrowは学校に通うことが難しいお子さんたちの一つのコミュニティの場になりたいと思っています。<br>
+      勉強やレクリエーションを通して「人とコミュニケーション」をとり、そしてそれが「楽しい」と思ってもらえる。そんな時間を提供できればと思います。
+    </p>
+    <p>
+      基本的には勉強を指導しますが私たちが何よりも大切にしていることはコミュニケーションです。
+    </p>
+  </section>
+
+  <!-- 入会案内 -->
+  <section id="join">
+    <h2>入会案内</h2>
+    <p>※ここは今後内容を追加してください。</p>
+  </section>
+
+  <!-- 講師紹介 -->
+  <section id="staff">
+    <h2>講師紹介</h2>
+    <p>経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。</p>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>※今後フォームや詳細情報を追加予定です。</p>
+  </section>
 
   <!-- アクセス -->
   <section id="access">
     <h2>アクセス</h2>
     <p>
-      〒016-0871<br>
-      秋田県能代市字昇平岱24-18（エース進学塾能代教室内）<br>
-      メール：<a href="mailto:freeschoolgrow@gmail.com">freeschoolgrow@gmail.com</a><br>
-      お電話：0185-74-5615（火〜土 16:00〜21:00）
+      〒０１６−０８７１<br>
+      秋田県能代市字昇平岱２４−１８（エース進学塾能代教室内）<br>
+      メール：freeschoolgrow@gmail.com<br>
+      お電話：０１８５−７４−５６１５（火〜土　１６：００〜２１：００）
     </p>
   </section>
 
+  <!-- フッター -->
   <footer>
-    <p>© 2025 フリースクール grow</p>
+    <p>© 2025 フリースクール grow / お問い合わせ: freeschoolgrow@gmail.com</p>
   </footer>
 
+  <!-- スライドショーJS -->
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    setInterval(() => {
+      slides[currentIndex].classList.remove("active");
+      currentIndex = (currentIndex + 1) % slides.length;
+      slides[currentIndex].classList.add("active");
+    }, 5000);
+  </script>
 </body>
 </html>
