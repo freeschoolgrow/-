@@ -15,88 +15,49 @@
       color: #333;
     }
 
-    /* スライドショー */
-    .hero-slider {
-      position: relative;
-      width: 100%;
-      height: 500px;
-      overflow: hidden;
-    }
-    .hero-slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .hero-slide.active {
-      opacity: 1;
-    }
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      text-align: center;
-      color: white;
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.7);
-      transform: translateY(-50%);
-      padding: 0 1rem;
-    }
-
-    /* ナビゲーションバー */
     nav {
-      background-color: rgba(255, 255, 255, 0.8); /* 半透明の白 */
-      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.6); /* 半透明度さらに上げる */
+      padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1rem;
+      justify-content: flex-start;
       position: fixed;
       top: 0;
-      left: 0;
-      right: 0;
+      width: 100%;
       z-index: 1000;
-      backdrop-filter: blur(6px); /* 背景ぼかし（対応ブラウザでより美しく） */
+      backdrop-filter: blur(6px); /* 背景ぼかし */
     }
     nav a {
+      margin: 0 1rem;
       text-decoration: none;
       color: #388e3c;
       font-weight: bold;
-      padding: 0.5rem 0.75rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #d32f2f;
     }
     .logo-link {
       margin-right: auto;
     }
     .logo-img {
-      height: 40px;
+      height: 50px;
       vertical-align: middle;
     }
 
     section {
-      padding: 3rem 1rem;
+      padding: 4rem 1rem 3rem;
       max-width: 900px;
       margin: auto;
       border-bottom: 1px solid #eee;
     }
+
     h2 {
       border-left: 6px solid #d7a86e;
       padding-left: 0.5rem;
       color: #333;
     }
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-    }
-    a.pdf-link {
-      color: #d32f2f;
-      text-decoration: underline;
-    }
+
     footer {
       background-color: #f5f5f5;
       text-align: center;
@@ -104,17 +65,18 @@
       font-size: 0.9rem;
       color: #777;
     }
-
-    /* スライドの下が隠れないように */
-    .spacer {
-      height: 70px;
-    }
   </style>
 </head>
 <body>
 
-  <!-- ナビゲーションバー（半透明・固定） -->
+  <!-- トップ -->
+  <div id="top"></div>
+
+  <!-- ナビゲーションバー -->
   <nav>
+    <a href="#top" class="logo-link">
+      <img src="growlogo.png" alt="growロゴ" class="logo-img">
+    </a>
     <a href="#news">お知らせ</a>
     <a href="#about">growについて</a>
     <a href="#join">入会案内</a>
@@ -123,102 +85,22 @@
     <a href="#access">アクセス</a>
   </nav>
 
-  <!-- スライドショー -->
-  <div class="hero-slider">
-    <img src="IMG_2498_resized.jpg" alt="スライド1" class="hero-slide active">
-    <img src="IMG_2499_resized.jpg" alt="スライド2" class="hero-slide">
-    <img src="IMG_2500_resized.jpg" alt="スライド3" class="hero-slide">
-    <div class="hero-text" id="hero-message">
-      学校でも塾でもない。ここは不登校の中学生のための学習室です。
-    </div>
-  </div>
+  <!-- セクション例（aboutやnewsなどこの下に続きます） -->
 
-  <!-- スライドに隠れないようスペーサー -->
-  <div class="spacer"></div>
-
-  <!-- セクション：お知らせ -->
-  <section id="news">
-    <h2>お知らせ</h2>
-    <ul>
-      <li>2025年7月：<a href="pdfs/july-news.pdf" class="pdf-link" target="_blank">7月のお知らせ（PDF）</a></li>
-    </ul>
-  </section>
-
-  <!-- セクション：growについて -->
-  <section id="about">
-    <h2>フリースクール grow について</h2>
-    <h3>「学習の場」として、「コミュニティの場」として</h3>
-    <p>
-      中学生は多感な時期です。友人関係や部活動、そして勉強面などあらゆる理由で心も体も調子を崩してしまいます。お家で一人で勉強を続けるのは難しい。でも学校に行っていないのに塾には行けない。<br>
-      このような悩みをお持ちの中学生や保護者の方は少なくありません。<br>
-      そんな中学生のために学習塾のプロ講師がゆっくり丁寧に、その子に合わせた内容とペースで指導いたします。
-    </p>
-    <p>
-      フリースクールgrowは学校に通うことが難しいお子さんたちの一つのコミュニティの場になりたいと思っています。<br>
-      勉強やレクリエーションを通して「人とコミュニケーション」をとり、そしてそれが「楽しい」と思ってもらえる。そんな時間を提供できればと思います。
-    </p>
-    <p>
-      基本的には勉強を指導しますが私たちが何よりも大切にしていることはコミュニケーションです。
-    </p>
-  </section>
-
-  <!-- セクション：入会案内 -->
-  <section id="join">
-    <h2>入会案内</h2>
-    <p>
-      入会に関する詳細は、近日公開予定です。お問い合わせはメールにてご連絡ください。
-    </p>
-  </section>
-
-  <!-- セクション：講師紹介 -->
-  <section id="staff">
-    <h2>講師紹介</h2>
-    <p>
-      経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。
-    </p>
-  </section>
-
-  <!-- セクション：お問い合わせ -->
-  <section id="contact">
-    <h2>お問い合わせ</h2>
-    <p>
-      メール：info@example.com<br>
-      電話：000-0000-0000（受付：平日10:00〜18:00）
-    </p>
-  </section>
-
-  <!-- セクション：アクセス -->
+  <!-- アクセス -->
   <section id="access">
     <h2>アクセス</h2>
     <p>
-      〒000-0000 秋田県能代市〇〇町〇〇-〇〇<br>
-      JR能代駅から徒歩10分／駐車場あり
+      〒016-0871<br>
+      秋田県能代市字昇平岱24-18（エース進学塾能代教室内）<br>
+      メール：<a href="mailto:freeschoolgrow@gmail.com">freeschoolgrow@gmail.com</a><br>
+      お電話：0185-74-5615（火〜土 16:00〜21:00）
     </p>
   </section>
 
-  <!-- フッター -->
   <footer>
-    <p>© 2025 フリースクール grow / お問い合わせ: info@example.com</p>
+    <p>© 2025 フリースクール grow</p>
   </footer>
-
-  <!-- スライドショーJS -->
-  <script>
-    const slides = document.querySelectorAll('.hero-slide');
-    const messages = [
-      "学校でも塾でもない。ここは不登校の中学生のための学習室です。",
-      "エース進学塾のプロ講師がその子に合わせた指導を行います。",
-      "高校は諦めたくない。そんな気持ちを応援したい。"
-    ];
-    const messageElement = document.getElementById('hero-message');
-    let current = 0;
-
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-      messageElement.textContent = messages[current];
-    }, 5000);
-  </script>
 
 </body>
 </html>
