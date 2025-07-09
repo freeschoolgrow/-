@@ -1,105 +1,100 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>フリースクール grow</title>
+  <link rel="stylesheet" href="style.css">
   <style>
     html {
       scroll-behavior: smooth;
     }
     body {
-      margin: 0;
       font-family: "Yu Gothic", sans-serif;
+      margin: 0;
       background-color: #fff;
       color: #333;
     }
-
-    /* ナビゲーションバー */
     nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(255, 255, 255, 0.6); /* 半透明 */
-      backdrop-filter: blur(5px);
+      background-color: rgba(255, 255, 255, 0.7);
+      padding: 1rem;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 1rem;
+      justify-content: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      flex-wrap: wrap;
-    }
-    nav .logo-img {
-      height: 45px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-left: auto;
+      backdrop-filter: blur(10px);
     }
     nav a {
+      margin: 0 1rem;
       text-decoration: none;
       color: #388e3c;
       font-weight: bold;
-      font-size: 1rem;
-      white-space: nowrap;
     }
-
-    /* スライドショー */
-   .slideshow {
-  position: relative;
-  margin-top: 60px;
-  height: 90vh; /* 縦を大きく見せる */
-  overflow: hidden;
-  background-color: #f5f5f5; /* 万が一の余白に薄グレー背景 */
-}
-
-.slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-  background-size: contain; /* 画像全体を表示 */
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.slide-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #d32f2f; /* 赤色に変更 */
-  font-size: 2rem; /* さらに大きく */
-  font-weight: bold; /* 太字に */
-  text-align: center;
-  white-space: nowrap; /* 一行表示 */
-  text-shadow: 1px 1px 2px #fff; /* 白い縁取りで際立たせる */
-}
-
+    .logo-link {
+      margin-right: auto;
+    }
+    .logo-img {
+      height: 50px;
+      vertical-align: middle;
+    }
+    .slideshow {
+      position: relative;
+      margin-top: 60px;
+      height: 90vh;
+      overflow: hidden;
+      background-color: #f5f5f5;
+    }
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    .slide-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #d32f2f;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      white-space: nowrap;
+      text-shadow: 1px 1px 2px #fff;
+    }
     section {
       padding: 3rem 1rem;
       max-width: 900px;
       margin: auto;
       border-bottom: 1px solid #eee;
     }
-
     h2 {
       border-left: 6px solid #d7a86e;
       padding-left: 0.5rem;
       color: #333;
     }
-    h3 {
-      color: #388e3c;
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      margin-bottom: 0.5rem;
     }
     a.pdf-link {
       color: #d32f2f;
       text-decoration: underline;
     }
-
     footer {
       background-color: #f5f5f5;
       text-align: center;
@@ -110,36 +105,30 @@
   </style>
 </head>
 <body>
-
-  <!-- ナビゲーションバー -->
   <nav>
-    <a href="#top">
-      <img src="growlogo.png" alt="growロゴ" class="logo-img" />
+    <a href="#top" class="logo-link">
+      <img src="growlogo.png" alt="growロゴ" class="logo-img">
     </a>
-    <div class="nav-links">
-      <a href="#news">お知らせ</a>
-      <a href="#about">growについて</a>
-      <a href="#join">入会案内</a>
-      <a href="#staff">講師</a>
-      <a href="#contact">お問い合わせ</a>
-      <a href="#access">アクセス</a>
-    </div>
+    <a href="#news">お知らせ</a>
+    <a href="#about">growについて</a>
+    <a href="#join">入会案内</a>
+    <a href="#staff">講師</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="#access">アクセス</a>
   </nav>
 
-  <!-- スライドショー -->
   <div class="slideshow" id="top">
-    <div class="slide active" style="background-image: url('IMG_2498_resized.jpg')">
+    <div class="slide active" style="background-image: url('IMG_2498_resized.jpg');">
       <div class="slide-text">学校でも塾でもない。ここは不登校の中学生のための学習室です。</div>
     </div>
-    <div class="slide" style="background-image: url('IMG_2499_resized.jpg')">
+    <div class="slide" style="background-image: url('IMG_2499_resized.jpg');">
       <div class="slide-text">エース進学塾のプロ講師がその子に合わせた指導を行います。</div>
     </div>
-    <div class="slide" style="background-image: url('IMG_2500_resized.jpg')">
+    <div class="slide" style="background-image: url('IMG_2500_resized.jpg');">
       <div class="slide-text">高校は諦めたくない。そんな気持ちを応援したい。</div>
     </div>
   </div>
 
-  <!-- お知らせ -->
   <section id="news">
     <h2>お知らせ</h2>
     <ul>
@@ -147,7 +136,6 @@
     </ul>
   </section>
 
-  <!-- growについて -->
   <section id="about">
     <h2>フリースクール grow について</h2>
     <h3>「学習の場」として、「コミュニティの場」として</h3>
@@ -165,49 +153,53 @@
     </p>
   </section>
 
-  <!-- 入会案内 -->
   <section id="join">
     <h2>入会案内</h2>
-    <p>※ここは今後内容を追加してください。</p>
+    <p>※入会案内の内容は現在準備中です。</p>
   </section>
 
-  <!-- 講師紹介 -->
   <section id="staff">
     <h2>講師紹介</h2>
-    <p>経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。</p>
-  </section>
-
-  <!-- お問い合わせ -->
-  <section id="contact">
-    <h2>お問い合わせ</h2>
-    <p>※今後フォームや詳細情報を追加予定です。</p>
-  </section>
-
-  <!-- アクセス -->
-  <section id="access">
-    <h2>アクセス</h2>
     <p>
-      〒０１６−０８７１<br>
-      秋田県能代市字昇平岱２４−１８（エース進学塾能代教室内）<br>
-      メール：freeschoolgrow@gmail.com<br>
-      お電話：０１８５−７４−５６１５（火〜土　１６：００〜２１：００）
+      経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。
     </p>
   </section>
 
-  <!-- フッター -->
+  <section id="contact">
+    <h2>お問い合わせ</h2>
+    <p>お問い合わせは以下のメールまたはお電話にて受け付けております。</p>
+    <ul>
+      <li>メール：freeschoolgrow@gmail.com</li>
+      <li>お電話：0185-74-5615（火〜土 16:00〜21:00）</li>
+    </ul>
+  </section>
+
+  <section id="access">
+    <h2>アクセス</h2>
+    <p>
+      〒016-0871 秋田県能代市字昇平岱24-18（エース進学塾能代教室内）<br>
+      メール：freeschoolgrow@gmail.com<br>
+      お電話：0185-74-5615（火〜土 16:00〜21:00）
+    </p>
+  </section>
+
   <footer>
     <p>© 2025 フリースクール grow / お問い合わせ: freeschoolgrow@gmail.com</p>
   </footer>
 
-  <!-- スライドショーJS -->
   <script>
-    let currentIndex = 0;
-    const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
 
     setInterval(() => {
-      slides[currentIndex].classList.remove("active");
-      currentIndex = (currentIndex + 1) % slides.length;
-      slides[currentIndex].classList.add("active");
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
     }, 5000);
   </script>
 </body>
