@@ -104,20 +104,71 @@
       font-size: 0.9rem;
       color: #777;
     }
+    /* ハンバーガーメニューのスタイル */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* メニュー項目（スマホ用） */
+.menu-items {
+  display: flex;
+  gap: 1rem;
+}
+
+/* スマホ用の表示切り替え */
+@media (max-width: 768px) {
+  .menu-items {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ddd;
+    z-index: 999;
+  }
+
+  .menu-items.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+}
+
   </style>
 </head>
 <body>
   <nav>
-    <a href="#top" class="logo-link">
-      <img src="growlogo.png" alt="growロゴ" class="logo-img">
-    </a>
+  <a href="#top" class="logo-link">
+    <img src="growlogo.png" alt="growロゴ" class="logo-img">
+  </a>
+
+  <button id="menu-toggle" class="hamburger">&#9776;</button>
+
+  <div id="menu-items" class="menu-items">
     <a href="#news">お知らせ</a>
     <a href="#about">growについて</a>
-    <a href="#join">入会案内</a>
+    <a href="#guide">入会案内</a>
     <a href="#staff">講師</a>
     <a href="#contact">お問い合わせ</a>
     <a href="#access">アクセス</a>
-  </nav>
+  </div>
+</nav>
 
   <div class="slideshow" id="top">
     <div class="slide active" style="background-image: url('IMG_2498_resized.jpg');">
@@ -286,6 +337,14 @@
   </footer>
 
   <script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuItems = document.getElementById("menu-items");
+
+  menuToggle.addEventListener("click", () => {
+    menuItems.classList.toggle("show");
+  });
+</script>
+<script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
 
