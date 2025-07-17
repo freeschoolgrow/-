@@ -173,6 +173,40 @@
     white-space: normal;
   }
 }
+@media screen and (max-width: 768px) {
+  .slideshow-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slide {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .text {
+    font-size: 1.2rem;
+    padding: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    text-align: center;
+    white-space: normal;
+    background-color: rgba(0, 0, 0, 0.5); /* 背景が必要であれば */
+    color: #fff;
+    box-sizing: border-box;
+  }
+}
 
   </style>
 </head>
