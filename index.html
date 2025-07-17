@@ -192,6 +192,16 @@
     word-break: break-word;
   }
 }
+@media screen and (max-width: 768px) {
+  .slide-text {
+    width: 90%;           /* テキスト幅を広げる */
+    left: 5%;             /* 中央寄せのための位置調整 */
+    padding: 0 10px;      /* テキストの内側余白も少し */
+    font-size: 5vw;       /* スマホ向けフォントサイズ */
+    line-height: 1.4;     /* 行間調整 */
+    transform: none;      /* 中央寄せの変形を解除（必要に応じて） */
+  }
+}
 
   </style>
 </head>
