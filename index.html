@@ -202,6 +202,53 @@
     transform: none;      /* 中央寄せの変形を解除（必要に応じて） */
   }
 }
+/* 講師紹介セクション全体 */
+.teacher-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+/* 写真部分 */
+.teacher-photo img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* 紹介文部分 */
+.teacher-info {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* 名前スタイル */
+.teacher-name {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* スマホ対応 */
+@media (max-width: 768px) {
+  .teacher-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+  .teacher-photo img {
+    max-width: 90%;
+  }
+
+  .teacher-info {
+    width: 100%;
+    padding-top: 10px;
+  }
+}
 
   </style>
 </head>
@@ -346,11 +393,28 @@
 </section>
 
   <section id="staff">
-    <h2>講師紹介</h2>
-    <p>
-      経験豊富な教育者が、子どもたちの成長を丁寧にサポートします。現在は2名の専任講師が在籍しています。
-    </p>
-  </section>
+  <div class="section-content">
+    <h2 class="section-title">講師紹介</h2>
+    <div class="teacher-profile">
+      <div class="teacher-photo">
+        <img src="https://via.placeholder.com/300x400.png?text=Sample+Photo" alt="講師の写真">
+      </div>
+      <div class="teacher-info">
+        <h3 class="teacher-name">講師　佐々木竜平　Sasaki Ryuhei</h3>
+        <p>
+          秋田県八峰町出身。<br>
+          大学を卒業後、仙台市の学習塾にて小学生〜中学生までの集団指導を４年間行う。理科・数学担当。<br>
+          ２７歳で地元に帰省。事務職に就き、約４年間勤務。<br>
+          ２０２０年、３２歳で独立し能代市内に「エース進学塾能代教室」を開校。<br>
+          ２０２５年、同住所にて「フリースクールgrow」を開校。<br>
+          これまでの仕事の経験を活かし、子どもたちに勉強の大切さと考えることの大切さを指導している。<br><br>
+          また趣味のゲーム好きから、地元八峰町で有志からなるeスポーツコミュニティ「ePGaming」を設立。<br>
+          能代山本の地域活性化のためのイベント企画などを行う。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section id="contact">
   <h2>お問い合わせ</h2>
