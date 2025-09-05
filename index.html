@@ -392,29 +392,78 @@
   </p>
 </section>
 
-  <section id="staff">
-  <div class="section-content">
-    <h2 class="section-title">講師紹介</h2>
-    <div class="teacher-profile">
-      <div class="teacher-photo">
-        <img src="https://via.placeholder.com/300x400.png?text=Sample+Photo" alt="講師の写真">
-      </div>
-      <div class="teacher-info">
-        <h3 class="teacher-name">講師　佐々木竜平　Sasaki Ryuhei</h3>
-        <p>
-          秋田県八峰町出身。<br>
-          大学を卒業後、仙台市の学習塾にて小学生〜中学生までの集団指導を４年間行う。理科・数学担当。<br>
-          ２７歳で地元に帰省。事務職に就き、約４年間勤務。<br>
-          ２０２０年、３２歳で独立し能代市内に「エース進学塾能代教室」を開校。<br>
-          ２０２５年、同住所にて「フリースクールgrow」を開校。<br>
-          これまでの仕事の経験を活かし、子どもたちに勉強の大切さと考えることの大切さを指導している。<br><br>
-          また趣味のゲーム好きから、地元八峰町で有志からなるeスポーツコミュニティ「ePGaming」を設立。<br>
-          能代山本の地域活性化のためのイベント企画などを行う。
-        </p>
-      </div>
+  <section id="staff" class="staff-section">
+  <div class="staff-container">
+    <div class="staff-photo">
+      <img src="IMG_2665_resized_400px.jpg" alt="講師 佐々木竜平の写真">
+    </div>
+    <div class="staff-info">
+      <h2>講師紹介</h2>
+      <h3>講師　佐々木竜平　Sasaki Ryuhei</h3>
+      <p>
+        秋田県八峰町出身。<br>
+        大学を卒業後、仙台市の学習塾にて小学生〜中学生までの集団指導を４年間行う。理科・数学担当。<br>
+        ２７歳で地元に帰省。事務職に就き、約４年間勤務。<br>
+        ２０２０年、３２歳で独立し能代市内に「エース進学塾能代教室」を開校。<br>
+        ２０２５年、同住所にて「フリースクールgrow」を開校。<br>
+        これまでの仕事の経験を活かし、子どもたちに勉強の大切さと考えることの大切さを指導している。<br><br>
+        また趣味のゲーム好きから、地元八峰町で有志からなるeスポーツコミュニティ「ePGaming」を設立。<br>
+        能代山本の地域活性化のためのイベント企画などを行う。
+      </p>
     </div>
   </div>
 </section>
+
+<style>
+.staff-section {
+  padding: 40px 20px;
+}
+
+.staff-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.staff-photo img {
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.staff-info {
+  flex: 1;
+}
+
+.staff-info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.staff-info h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.staff-info p {
+  line-height: 1.6;
+}
+
+/* スマホ表示 */
+@media screen and (max-width: 768px) {
+  .staff-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+  .staff-photo img {
+    max-width: 100%;
+  }
+}
+</style>
 
   <section id="contact">
   <h2>お問い合わせ</h2>
